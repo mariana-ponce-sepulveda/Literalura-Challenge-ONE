@@ -1,0 +1,135 @@
+📖 LiterAlura
+
+Java · Spring Boot · PostgreSQL
+
+📌 Descripción del Proyecto
+
+LiterAlura es una aplicación de consola desarrollada en Java utilizando Spring Boot.
+El sistema consume la API pública Gutendex, procesa información bibliográfica en formato JSON y la almacena en una base de datos relacional PostgreSQL.
+
+El proyecto está orientado a reforzar buenas prácticas de desarrollo backend, incluyendo persistencia de datos, consumo de APIs REST y diseño de aplicaciones de consola interactivas.
+
+🚀 Funcionalidades Principales
+1. 🔍 Búsqueda de Libros (API Web)
+
+Conexión directa con la API Gutendex.
+
+Obtención del resultado más relevante según el término ingresado.
+
+Registro automático de libros y autores en la base de datos.
+
+Prevención de duplicados:
+
+Validaciones lógicas en Java mediante Optional.
+
+Restricciones UNIQUE a nivel de base de datos.
+
+2. 📚 Biblioteca Local
+
+Listado completo de libros almacenados.
+
+Visualización de título, autor, idioma y número de descargas.
+
+Filtro de libros por idioma (es, en, fr, pt).
+
+3. ✍️ Gestión de Autores
+
+Registro de autores vinculados a los libros.
+
+Almacenamiento de año de nacimiento y fallecimiento.
+
+Consulta de autores vivos en un año específico mediante consultas JPA personalizadas.
+
+4. 🌐 Consultas Web Avanzadas
+
+Listado de los 10 libros más descargados desde la API.
+
+Generación de estadísticas generales de descargas.
+
+🛠️ Tecnologías y Conceptos Aplicados
+
+Java 17/21
+
+Uso de record para DTOs inmutables.
+
+Streams para procesamiento de colecciones.
+
+Spring Boot 3.x
+
+Inyección de dependencias.
+
+Gestión del ciclo de vida de la aplicación.
+
+Spring Data JPA
+
+Derived Queries, por ejemplo:
+
+List<Libro> findByIdioma(String idioma);
+List<Autor> findByAnioNacimientoLessThanEqualAndAnioFallecimientoGreaterThanEqual(int anio);
+
+
+PostgreSQL
+
+Persistencia relacional.
+
+Relaciones @OneToMany y @ElementCollection.
+
+Jackson
+
+Mapeo de JSON a objetos Java con @JsonAlias y @JsonIgnoreProperties.
+
+📊 Estructura de la Base de Datos
+
+La base de datos literalura_hpg se encuentra normalizada para asegurar la integridad y consistencia de la información, manteniendo relaciones claras entre libros y autores.
+
+🧠 Aprendizajes Clave
+
+Consumo de APIs REST externas.
+
+Procesamiento y persistencia de datos JSON.
+
+Manejo de relaciones entre entidades con JPA.
+
+Prevención de duplicados a nivel lógico y de base de datos.
+
+Diseño de aplicaciones de consola interactivas.
+
+Uso seguro de Optional para control de valores nulos.
+
+📌 Próximas Mejoras
+
+Implementar paginación en consultas web.
+
+Exportación de datos a CSV o PDF.
+
+Incorporación de tests unitarios con JUnit y Mockito.
+
+Migración a interfaz web con Spring MVC o WebFlux.
+
+⚙️ Configuración y Ejecución
+1. Requisitos
+
+JDK 17 o superior.
+
+Maven 3.x.
+
+PostgreSQL 15+.
+
+2. Configuración de la Base de Datos
+
+Archivo src/main/resources/application.properties:
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/literalura_hpg
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_contraseña
+spring.jpa.hibernate.ddl-auto=update
+
+3. Instalación y Ejecución
+# Clonar el repositorio
+git clone https://github.com/P4154N0/Literalura-Challenge-ONE-Java-Back-End.git
+
+# Acceder al proyecto
+cd literalura
+
+# Ejecutar la aplicación
+mvn spring-boot:run
