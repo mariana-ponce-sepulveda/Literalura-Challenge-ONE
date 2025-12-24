@@ -128,7 +128,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 3. Instalación y Ejecución
 # Clonar el repositorio
-git clone https://github.com/P4154N0/Literalura-Challenge-ONE-Java-Back-End.git
+git clone https://github.com/mariana-ponce-sepulveda/Literalura-Challenge-ONE.git
 
 # Acceder al proyecto
 cd literalura
